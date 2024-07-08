@@ -3,9 +3,20 @@ def main():
     text = readtext(path_to_file)
     total_words = word_count(text)
     char_dict = count_char(text)
-    #print(text)
-    #print(f"Total Words: {total_words}")
-    print(char_dict)
+    letter_count = count_letters(char_dict)
+
+    print(f"--- Begin report of {path_to_file} ---")
+    print(f"{total_words} words found in the document")
+    print("")
+
+    #print(char_dict)
+    print("------------------")
+    #print(letter_count)
+    for i in letter_count:
+        #print(i)
+        print(f"The '{i['ch']}' character was found {i['count']} times")
+    print("--- End report ---")
+
 
 def word_count(text):
     words = text.split()
@@ -23,5 +34,15 @@ def count_char(text):
         else:
             char_dict[ch] = 1
     return char_dict
+
+def count_letters(char_dict):
+    letter_count = []
+    for i in char_dict:
+        if i.isalpha():
+            letter_count.append({"ch":i, "count":char_dict[i]})
+    #letter_count.sort(reverse=True, key=letter_count["count"])
+    letter_count.sort(reverse=True, key=lambda x: x["count"])
+    return letter_count
+
 
 main()
