@@ -8,12 +8,7 @@ def main():
     print(f"--- Begin report of {path_to_file} ---")
     print(f"{total_words} words found in the document")
     print("")
-
-    #print(char_dict)
-    print("------------------")
-    #print(letter_count)
     for i in letter_count:
-        #print(i)
         print(f"The '{i['ch']}' character was found {i['count']} times")
     print("--- End report ---")
 
@@ -39,8 +34,7 @@ def count_letters(char_dict):
     letter_count = []
     for i in char_dict:
         if i.isalpha():
-            letter_count.append({"ch":i, "count":char_dict[i]})
-    #letter_count.sort(reverse=True, key=letter_count["count"])
+            letter_count.append({"ch": i, "count": char_dict[i]})
     letter_count.sort(reverse=True, key=lambda x: x["count"])
     return letter_count
 
