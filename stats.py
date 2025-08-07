@@ -17,6 +17,7 @@ def count_characters(text):
 def sort_on(items):
     return items["num"]
 
+
 def sort_dict(text):
     char_dict = count_characters(text)
     char_dict_list = []
@@ -25,4 +26,4 @@ def sort_dict(text):
             key_dict = {"char": k, "num": char_dict[k]}
             char_dict_list.append(key_dict)
     char_dict_list.sort(reverse=True, key=sort_on)
-    print(char_dict_list)
+    return char_dict_list
